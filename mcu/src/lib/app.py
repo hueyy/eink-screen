@@ -9,7 +9,11 @@ def init():
         activate_wifi_captive_portal()
 
     from lib.api import fetch_screen
-    import machine
+
+    # from lib.display import Display
+    import time
+
+    # d = Display()
 
     etag = None
 
@@ -17,7 +21,10 @@ def init():
         print("Running fetch_screen")
         etag = fetch_screen(etag)
         print("fetch_screen done")
-        machine.deepsleep(60000 * 5)  # re-fetch every 5 minutes
+        # d.epd.sleep()
+        time.sleep(60 * 5)
+        # d.epd.reset()
+        # machine.deepsleep(60000 * 5)  # re-fetch every 5 minutes
 
     # import uasyncio
 
